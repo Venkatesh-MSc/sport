@@ -1,131 +1,270 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>College Event Registration</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-        .form-container {
-            background: white;
-            width: 300px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0 15px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background: #0066cc;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0055aa;
-        }
-        .error {
-            color: red;
-            font-size: 12px;
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
-    </style>
+<title>World Countries</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+color: #333;
+}
+ul {
+list-style: none;
+padding: 0;
+}
+li {
+display: inline;
+margin: 10px;
+}
+a {
+text-decoration: none;
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+transition: 0.3s;
+}
+a:hover {
+background-color: #0056b3;
+}
+</style>
 </head>
 <body>
-    <div class="form-container">
-        <h2>Event Registration</h2>
-        <form id="regForm">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" required>
-            <div id="nameError" class="error"></div>
+<h1>WELCOME TO HARI WORLD</h1>
+<ul>
+<li><a href="india.html">India</a></li>
+<li><a href="usa.html">United States</a></li>
+<li><a href="uk.html">United Kingdom</a></li>
+<li><a href="japan.html">Japan</a></li>
+<li><a href="germany.html">Germany</a></li>
+</ul>
+</body>
+</html>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <div id="emailError" class="error"></div>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Country Name</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+color: #333;
+}
+p {
+max-width: 600px;
+margin: auto;
+font-size: 18px;
+color: #555;
+}
+a {
+display: inline-block;
+margin-top: 20px;
+text-decoration: none;
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+transition: 0.3s;
+}a:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<h1>India</h1>
+<p>India, located in South Asia, is the seventh-largest country
+by land area and the most populous country in the world. It is known
+for its rich cultural heritage, diverse languages, and historic
+landmarks such as the Taj Mahal. The capital of India is New
+Delhi.</p>
+<a href="world.html">Back to World</a>
+</body>
+</html>/
+<!DOCTYPE html>
+<html>
+<head>
+<title>Country Name</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+color: #333;
+}
+p {
+max-width: 600px;
+margin: auto;
+font-size: 18px;
+color: #555;
+}
+a {
+display: inline-block;
+margin-top: 20px;
+text-decoration: none;
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+transition: 0.3s;
+}
+a:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<h1>United States</h1>
+<p>The United States is a country in North America known for its
+diverse culture, economic power, and landmarks such as the Statue of
+Liberty and the Grand Canyon.</p>
+<a href="world.html">Back to World</a>
+</body>
+</html>
 
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" required>
-            <div id="phoneError" class="error"></div>
-
-            <label for="college">College Name:</label>
-            <input type="text" id="college" required>
-
-            <label for="event">Select Event:</label>
-            <select id="event" required>
-                <option value="">-- Choose --</option>
-                <option value="coding">Coding Competition</option>
-                <option value="quiz">General Quiz</option>
-                <option value="debate">Debate</option>
-            </select>
-            <div id="eventError" class="error"></div>
-
-            <button type="button" onclick="validateForm()">Register</button>
-        </form>
-    </div>
-
-    <script>
-        function validateForm() {
-            let valid = true;
-            
-            // Name validation
-            const name = document.getElementById("name").value;
-            if (name.trim() === "") {
-                document.getElementById("nameError").textContent = "Name is required";
-                valid = false;
-            } else {
-                document.getElementById("nameError").textContent = "";
-            }
-
-            // Email validation
-            const email = document.getElementById("email").value;
-            if (!email.includes("@") || !email.includes(".")) {
-                document.getElementById("emailError").textContent = "Valid email required";
-                valid = false;
-            } else {
-                document.getElementById("emailError").textContent = "";
-            }
-
-            // Phone validation
-            const phone = document.getElementById("phone").value;
-            if (phone.length !== 10 || isNaN(phone)) {
-                document.getElementById("phoneError").textContent = "10 digit number required";
-                valid = false;
-            } else {
-                document.getElementById("phoneError").textContent = "";
-            }
-
-            // Event validation
-            const event = document.getElementById("event").value;
-            if (event === "") {
-                document.getElementById("eventError").textContent = "Please select an event";
-                valid = false;
-            } else {
-                document.getElementById("eventError").textContent = "";
-            }
-
-            if (valid) {
-                alert("Registration Successful!");
-                document.getElementById("regForm").reset();
-            }
-        }
-    </script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Country Name</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+color: #333;
+}
+p {
+max-width: 600px;
+margin: auto;
+font-size: 18px;
+color: #555;
+}
+a {
+display: inline-block;
+margin-top: 20px;
+text-decoration: none;
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+transition: 0.3s;
+}
+a:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<h1>United Kingdom</h1>
+<p>The United Kingdom, made up of England, Scotland, Wales, and
+Northern Ireland, is known for its monarchy, cultural heritage, and
+landmarks like Big Ben and Buckingham Palace.</p>
+<a href="world.html">Back to World</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Country Name</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+color: #333;
+}
+p {
+max-width: 600px;
+margin: auto;
+font-size: 18px;
+color: #555;
+}
+a {
+display: inline-block;
+margin-top: 20px;
+text-decoration: none;
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+transition: 0.3s;
+}
+a:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<h1>Japan</h1>
+<p>Japan, an island nation in East Asia, is known for its
+technological advancements, traditional culture, and landmarks such
+as Mount Fuji and the Tokyo Tower.</p>
+<a href="world.html">Back to World</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Country Name</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+h1 {
+color: #333;
+}
+p {
+max-width: 600px;
+margin: auto;
+font-size: 18px;
+color: #555;
+}
+a {
+display: inline-block;
+margin-top: 20px;
+text-decoration: none;
+background-color: #007bff;
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+transition: 0.3s;
+}
+a:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<h1>Germany</h1>
+<p>Germany, located in Central Europe, is known for its history,
+engineering expertise, and cultural heritage, with landmarks like
+the Brandenburg Gate and Neuschwanstein Castle.</p>
+<a href="world.html">Back to World</a>
 </body>
 </html>
