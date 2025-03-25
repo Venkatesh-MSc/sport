@@ -1,32 +1,18 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Bio-Data</title>
+    <title>Sports Information</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        h1, h2 {
-            color: #0066cc;
-            text-align: center;
-        }
-        .section {
-            margin: 20px 0;
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 10px 0;
+            margin: 20px 0;
         }
         th, td {
             border: 1px solid #ddd;
@@ -36,91 +22,118 @@
         th {
             background-color: #f2f2f2;
         }
-        ul {
-            padding-left: 20px;
-        }
-        li {
+        input {
+            padding: 8px;
             margin: 5px 0;
+        }
+        button {
+            padding: 8px 15px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0055aa;
         }
     </style>
 </head>
 <body>
-    <h1>Bio-Data</h1>
+    <h1>Sports Information</h1>
     
-    <div class="section">
-        <h2>Personal Information</h2>
-        <table>
-            <tr>
-                <th>Name:</th>
-                <td>Janani</td>
-            </tr>
-            <tr>
-                <th>Date of Birth:</th>
-                <td>DD-MM-YYYY</td>
-            </tr>
-            <tr>
-                <th>Gender:</th>
-                <td>Female</td>
-            </tr>
-            <tr>
-                <th>Email:</th>
-                <td>kvjanani03@gmail.com</td>
-            </tr>
-            <tr>
-                <th>Phone:</th>
-                <td>9629607758</td>
-            </tr>
-            <tr>
-                <th>Address:</th>
-                <td>Kallakurichi-Peruvangur</td>
-            </tr>
-        </table>
-    </div>
+    <h2>Popular Sports (Unordered List)</h2>
+    <ul id="sportsList">
+        <li>Cricket</li>
+        <li>Basketball</li>
+        <li>Tennis</li>
+    </ul>
+    <input id="newSport" placeholder="Add new sport">
+    <button onclick="addSportToList()">Add Sport</button>
     
-    <div class="section">
-        <h2>Educational Qualification</h2>
-        <table>
-            <tr>
-                <th>Degree</th>
-                <th>Institution</th>
-                <th>Year</th>
-                <th>Percentage</th>
-            </tr>
-            <tr>
-                <td>HSC</td>
-                <td>Government Higher Secondary School</td>
-                <td>2019-2020</td>
-                <td>97%</td>
-            </tr>
-            <tr>
-                <td>B.Sc. Computer Science</td>
-                <td>Government Arts College</td>
-                <td>2020-2023</td>
-                <td>98%</td>
-            </tr>
-            <tr>
-                <td>M.Sc. Computer Science</td>
-                <td>Government Arts College</td>
-                <td>2023-2025</td>
-                <td>99%</td>
-            </tr>
-        </table>
-    </div>
+    <h2>Training Steps (Ordered List)</h2>
+    <ol id="trainingSteps">
+        <li>Regular Practice</li>
+        <li>Strength & Conditioning</li>
+    </ol>
+    <input id="newStep" placeholder="Add new step">
+    <button onclick="addTrainingStep()">Add Step</button>
     
-    <div class="section">
-        <h2>Certifications</h2>
-        <ul>
-            <li>NSS Certification</li>
-            <li>NCC Certification</li>
-        </ul>
-    </div>
+    <h2>Sports Comparison Table</h2>
+    <table id="sportsTable">
+        <tr>
+            <th>Sport</th>
+            <th>Type</th>
+            <th>Players</th>
+        </tr>
+        <tr>
+            <td>Cricket</td>
+            <td>Team</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>Tennis</td>
+            <td>Individual</td>
+            <td>1-2</td>
+        </tr>
+    </table>
     
-    <div class="section">
-        <h2>Extra Curricular Activities</h2>
-        <ul>
-            <li>Dancing</li>
-            <li>Drawing</li>
-        </ul>
-    </div>
+    <h3>Add New Sport to Table</h3>
+    <input id="sportName" placeholder="Sport name">
+    <input id="sportType" placeholder="Sport type">
+    <input id="playerCount" placeholder="Player count">
+    <button onclick="addSportToTable()">Add to Table</button>
+
+    <script>
+        // Add sport to unordered list
+        function addSportToList() {
+            const input = document.getElementById("newSport");
+            if (input.value.trim()) {
+                const li = document.createElement("li");
+                li.textContent = input.value;
+                document.getElementById("sportsList").appendChild(li);
+                input.value = "";
+            } else {
+                alert("Please enter a sport name");
+            }
+        }
+
+        // Add step to ordered list
+        function addTrainingStep() {
+            const input = document.getElementById("newStep");
+            if (input.value.trim()) {
+                const li = document.createElement("li");
+                li.textContent = input.value;
+                document.getElementById("trainingSteps").appendChild(li);
+                input.value = "";
+            } else {
+                alert("Please enter a training step");
+            }
+        }
+
+        // Add sport to table
+        function addSportToTable() {
+            const name = document.getElementById("sportName").value;
+            const type = document.getElementById("sportType").value;
+            const players = document.getElementById("playerCount").value;
+            
+            if (name && type && players) {
+                const table = document.getElementById("sportsTable");
+                const row = table.insertRow();
+                
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td>${type}</td>
+                    <td>${players}</td>
+                `;
+                
+                // Clear inputs
+                document.getElementById("sportName").value = "";
+                document.getElementById("sportType").value = "";
+                document.getElementById("playerCount").value = "";
+            } else {
+                alert("Please fill all fields");
+            }
+        }
+    </script>
 </body>
 </html>
